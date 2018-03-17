@@ -94,7 +94,7 @@ public class ApprovedPullRequestTrait extends SCMSourceTrait {
         public boolean isExcluded(@NonNull SCMSourceRequest scmSourceRequest, @NonNull SCMHead scmHead) throws IOException, InterruptedException {
             if (scmHead instanceof PullRequestSCMHead) {
                 BitbucketSCMSourceRequest request = (BitbucketSCMSourceRequest) scmSourceRequest;
-                for (BitbucketPullRequest pull : ((BitbucketSCMSourceRequest) scmSourceRequest).getPullRequests()) {
+                for (BitbucketPullRequest pull : request.getPullRequests()) {
                     if (pull.getSource().getBranch().getName().equals(((PullRequestSCMHead) scmHead).getBranchName())) {
                         boolean hasApproval = false;
                         BitbucketPullRequestFull fullPullRequest = request.getPullRequestById(Integer.parseInt(pull.getId()));
