@@ -24,8 +24,8 @@ public class ApprovedPullRequestTrait extends SCMSourceTrait {
      * Constructor.
      */
     @DataBoundConstructor
-    public ApprovedPullRequestTrait(String strategyId) {
-        this.strategyId = Integer.parseInt(strategyId);
+    public ApprovedPullRequestTrait(int strategyId) {
+        this.strategyId = strategyId;
     }
 
     @SuppressWarnings("unused") // used by Jelly EL
