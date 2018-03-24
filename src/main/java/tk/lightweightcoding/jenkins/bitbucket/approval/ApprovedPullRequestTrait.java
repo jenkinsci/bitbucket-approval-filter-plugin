@@ -76,7 +76,7 @@ public class ApprovedPullRequestTrait extends SCMSourceTrait {
         public ListBoxModel doFillStrategyIdItems() {
             ListBoxModel result = new ListBoxModel();
             result.add("No approval necessary.", "1");
-            result.add("An approval required.", "2");
+            result.add("Any approval required.", "2");
             result.add("Non-author approval required.", "3");
             return result;
         }
