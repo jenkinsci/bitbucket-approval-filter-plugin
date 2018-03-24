@@ -86,6 +86,10 @@ public class ApprovedPullRequestTrait extends SCMSourceTrait {
 
         private final boolean requireNonAuthor;
 
+        public boolean isRequireNonAuthor() {
+            return requireNonAuthor;
+        }
+
         AnyApprovalSCMHeadFilter(boolean requireNonAuthor) {
             this.requireNonAuthor = requireNonAuthor;
         }
