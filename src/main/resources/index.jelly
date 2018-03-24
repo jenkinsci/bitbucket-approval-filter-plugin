@@ -1,4 +1,6 @@
 <?jelly escape-by-default='true'?>
 <div>
-    TODO
+  Allows the ability to filter which pull requests get built based on if the pull request
+  is approved. The options are requiring no approval, any approval, or a non-pull request
+  author approval.
 </div>
