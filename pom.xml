@@ -13,9 +13,9 @@
     <properties>
         <jenkins.version>2.7.3</jenkins.version>
     </properties>
-    <name>Bitbucket Approval SCM Filter</name>
+    <name>Bitbucket Approval Filter</name>
     <description>Filters that requires pull request to be approved before building.</description>
-    <url>https://wiki.jenkins-ci.org/display/JENKINS/TODO+Plugin</url>
+    <url>https://wiki.jenkins.io/display/JENKINS/Bitbucket+Approval+Filter+Plugin</url>
     <licenses>
         <license>
             <name>MIT License</name>
@@ -23,13 +23,12 @@
         </license>
     </licenses>
 
-    <!-- Assuming you want to host on @jenkinsci:
     <scm>
-        <connection>scm:git:git://github.com/jenkinsci/${project.artifactId}-plugin.git</connection>
-        <developerConnection>scm:git:git@github.com:jenkinsci/${project.artifactId}-plugin.git</developerConnection>
-        <url>https://github.com/jenkinsci/${project.artifactId}-plugin</url>
+        <connection>scm:git:git://github.com/jenkinsci/bitbucket-approval-filter-plugin.git</connection>
+        <developerConnection>scm:git:git@github.com:jenkinsci/bitbucket-approval-filter-plugin.git</developerConnection>
+        <url>https://github.com/jenkinsci/bitbucket-approval-filter-plugin</url>
+        <tag>HEAD</tag>
     </scm>
-    -->
 
     <dependencies>
 
@@ -211,6 +210,14 @@
 
         </dependencies>
     </dependencyManagement>
+
+    <developers>
+        <developer>
+            <id>kylec32</id>
+            <name>Kyle Carter</name>
+            <email>kylec32@gmail.com</email>
+        </developer>
+    </developers>
 
     <repositories>
         <repository>
