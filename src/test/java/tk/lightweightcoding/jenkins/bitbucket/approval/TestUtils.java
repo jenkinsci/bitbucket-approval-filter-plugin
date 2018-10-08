@@ -4,7 +4,6 @@ import com.cloudbees.jenkins.plugins.bitbucket.BitbucketSCMSourceRequest;
 import com.cloudbees.jenkins.plugins.bitbucket.PullRequestSCMHead;
 import com.cloudbees.jenkins.plugins.bitbucket.api.BitbucketBranch;
 import com.cloudbees.jenkins.plugins.bitbucket.api.BitbucketPullRequest;
-import com.cloudbees.jenkins.plugins.bitbucket.api.BitbucketPullRequestFull;
 import com.cloudbees.jenkins.plugins.bitbucket.api.BitbucketPullRequestSource;
 import com.cloudbees.jenkins.plugins.bitbucket.api.BitbucketReviewer;
 import com.cloudbees.jenkins.plugins.bitbucket.client.branch.BitbucketCloudBranch;
@@ -41,7 +40,7 @@ public class TestUtils {
         BitbucketBranch branch = new BitbucketCloudBranch("Test","123", 1L);
         doReturn(branch).when(source).getBranch();
 
-        BitbucketPullRequestFull full = mock(BitbucketPullRequestFull.class);
+        BitbucketPullRequest full = mock(BitbucketPullRequest.class);
         doReturn(full).when(request).getPullRequestById(any(Integer.class));
         doReturn(reviewers).when(full).getReviewers();
 

@@ -3,7 +3,6 @@ package tk.lightweightcoding.jenkins.bitbucket.approval.filters;
 import com.cloudbees.jenkins.plugins.bitbucket.BitbucketSCMSourceRequest;
 import com.cloudbees.jenkins.plugins.bitbucket.PullRequestSCMHead;
 import com.cloudbees.jenkins.plugins.bitbucket.api.BitbucketPullRequest;
-import com.cloudbees.jenkins.plugins.bitbucket.api.BitbucketPullRequestFull;
 import com.cloudbees.jenkins.plugins.bitbucket.api.BitbucketReviewer;
 import edu.umd.cs.findbugs.annotations.NonNull;
 import jenkins.scm.api.SCMHead;
@@ -21,7 +20,7 @@ public abstract class BaseApprovalFilter  extends SCMHeadFilter {
             for (BitbucketPullRequest pull : request.getPullRequests()) {
                 if (pull.getSource().getBranch().getName().equals(((PullRequestSCMHead) scmHead).getBranchName())) {
                     boolean hasApproval = false;
-                    BitbucketPullRequestFull fullPullRequest = request.getPullRequestById(Integer.parseInt(pull.getId()));
+                    BitbucketPullRequest fullPullRequest = request.getPullRequestById(Integer.parseInt(pull.getId()));
                     for (BitbucketReviewer reviewer : fullPullRequest.getReviewers()) {
                         hasApproval = hasApproval || (reviewer.getApproved() && additionalFiltering(reviewer, pull));
                     }
