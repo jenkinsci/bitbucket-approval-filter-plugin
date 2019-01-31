@@ -21,7 +21,7 @@ import static org.mockito.Mockito.mock;
 
 public class TestUtils {
     public static BitbucketSCMSourceRequest getMockRequest() throws Exception {
-        return getMockRequest(Collections.<BitbucketReviewer>emptyList());
+        return getMockRequest(Collections.emptyList());
     }
 
     public static BitbucketSCMSourceRequest getMockRequest(Collection<BitbucketReviewer> reviewers) throws Exception {
@@ -35,7 +35,7 @@ public class TestUtils {
         BitbucketPullRequestSource source = mock(BitbucketPullRequestSource.class);
         doReturn(source).when(pr).getSource();
         doReturn("1").when(pr).getId();
-        doReturn("Author").when(pr).getAuthorLogin();
+        doReturn("Author").when(pr).getAuthorIdentifier();
 
         BitbucketBranch branch = new BitbucketCloudBranch("Test","123", 1L);
         doReturn(branch).when(source).getBranch();
