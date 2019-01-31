@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.jenkins-ci.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>2.33</version>
+        <version>3.23</version>
         <relativePath />
     </parent>
     <artifactId>bitbucket-approval-filter</artifactId>
@@ -12,6 +12,7 @@
     <packaging>hpi</packaging>
     <properties>
         <jenkins.version>2.7.3</jenkins.version>
+        <java.level>8</java.level>
     </properties>
     <name>Bitbucket Approval Filter</name>
     <description>Filters that requires pull request to be approved before building.</description>
@@ -35,7 +36,7 @@
         <dependency>
             <groupId>org.jenkins-ci.plugins</groupId>
             <artifactId>cloudbees-bitbucket-branch-source</artifactId>
-            <version>2.2.10-SNAPSHOT</version>
+            <version>2.4.1-SNAPSHOT</version>
         </dependency>
 
         <dependency>
@@ -72,7 +73,7 @@
         <dependency>
             <groupId>org.jenkins-ci.plugins</groupId>
             <artifactId>credentials</artifactId>
-            <version>2.1.10</version>
+            <version>2.1.14</version>
         </dependency>
 
     </dependencies>
@@ -83,7 +84,7 @@
             <dependency>
                 <groupId>org.jenkins-ci.plugins</groupId>
                 <artifactId>scm-api</artifactId>
-                <version>2.2.0</version>
+                <version>2.2.7</version>
             </dependency>
 
             <!-- setting transitive dependencies version to comply with the maven-enforcer-plugin RequireUpperBoundDeps rule-->
@@ -150,7 +151,7 @@
             <dependency>
                 <groupId>org.jenkins-ci.plugins</groupId>
                 <artifactId>display-url-api</artifactId>
-                <version>1.0</version>
+                <version>2.3.0</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
@@ -184,21 +185,9 @@
                 <scope>test</scope>
             </dependency>
             <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-beans</artifactId>
-                <version>2.5.6.SEC03</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-core</artifactId>
-                <version>2.5.6.SEC03</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
                 <groupId>org.jenkins-ci.plugins</groupId>
                 <artifactId>structs</artifactId>
-                <version>1.9</version>
+                <version>1.10</version>
                 <scope>test</scope>
             </dependency>
             <dependency>

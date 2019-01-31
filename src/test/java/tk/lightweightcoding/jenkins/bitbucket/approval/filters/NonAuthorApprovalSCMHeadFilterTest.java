@@ -24,7 +24,9 @@ public class NonAuthorApprovalSCMHeadFilterTest {
     @Test
     public void testFilteredWhenApprovalIsAuthor() throws Exception {
         BitbucketReviewer reviewer = mock(BitbucketReviewer.class);
-        doReturn("Author").when(reviewer).getReviewerLogin();
+        BitbucketReviewer.User mockUser = mock(BitbucketReviewer.User.class);
+        doReturn(mockUser).when(reviewer).getUser();
+        doReturn("Author").when(mockUser).getIdentifier();
         doReturn(true).when(reviewer).getApproved();
 
         BitbucketSCMSourceRequest mockRequest = getMockRequest(Collections.singletonList(reviewer));
@@ -40,7 +42,9 @@ public class NonAuthorApprovalSCMHeadFilterTest {
     @Test
     public void testNotFilteredWhenApprovalIsNotAuthor() throws Exception {
         BitbucketReviewer reviewer = mock(BitbucketReviewer.class);
-        doReturn("NotAuthor").when(reviewer).getReviewerLogin();
+        BitbucketReviewer.User mockUser = mock(BitbucketReviewer.User.class);
+        doReturn(mockUser).when(reviewer).getUser();
+        doReturn("NotAuthor").when(mockUser).getIdentifier();
         doReturn(true).when(reviewer).getApproved();
 
         BitbucketSCMSourceRequest mockRequest = getMockRequest(Collections.singletonList(reviewer));

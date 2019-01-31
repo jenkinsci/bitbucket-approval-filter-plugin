@@ -4,7 +4,6 @@ import com.cloudbees.jenkins.plugins.bitbucket.BitbucketSCMSourceRequest;
 import com.cloudbees.jenkins.plugins.bitbucket.PullRequestSCMHead;
 import com.cloudbees.jenkins.plugins.bitbucket.api.BitbucketBranch;
 import com.cloudbees.jenkins.plugins.bitbucket.api.BitbucketPullRequest;
-import com.cloudbees.jenkins.plugins.bitbucket.api.BitbucketPullRequestFull;
 import com.cloudbees.jenkins.plugins.bitbucket.api.BitbucketPullRequestSource;
 import com.cloudbees.jenkins.plugins.bitbucket.api.BitbucketReviewer;
 import com.cloudbees.jenkins.plugins.bitbucket.client.branch.BitbucketCloudBranch;
@@ -22,7 +21,7 @@ import static org.mockito.Mockito.mock;
 
 public class TestUtils {
     public static BitbucketSCMSourceRequest getMockRequest() throws Exception {
-        return getMockRequest(Collections.<BitbucketReviewer>emptyList());
+        return getMockRequest(Collections.emptyList());
     }
 
     public static BitbucketSCMSourceRequest getMockRequest(Collection<BitbucketReviewer> reviewers) throws Exception {
@@ -36,12 +35,12 @@ public class TestUtils {
         BitbucketPullRequestSource source = mock(BitbucketPullRequestSource.class);
         doReturn(source).when(pr).getSource();
         doReturn("1").when(pr).getId();
-        doReturn("Author").when(pr).getAuthorLogin();
+        doReturn("Author").when(pr).getAuthorIdentifier();
 
         BitbucketBranch branch = new BitbucketCloudBranch("Test","123", 1L);
         doReturn(branch).when(source).getBranch();
 
-        BitbucketPullRequestFull full = mock(BitbucketPullRequestFull.class);
+        BitbucketPullRequest full = mock(BitbucketPullRequest.class);
         doReturn(full).when(request).getPullRequestById(any(Integer.class));
         doReturn(reviewers).when(full).getReviewers();
 
