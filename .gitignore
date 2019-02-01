@@ -1,10 +1,13 @@
 .project
 .classpath
 .settings
-target
-work
+target/
+work/
+pom.xml.releaseBackup
+release.properties
 
-# INTELLIJ
-.idea
+ # INTELLIJ
+.idea/
 *.iml
 *.iws
+*.ipr

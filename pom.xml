@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.jenkins-ci.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>3.23</version>
+        <version>3.36</version>
         <relativePath />
     </parent>
     <artifactId>bitbucket-approval-filter</artifactId>
@@ -13,7 +13,7 @@
     <properties>
         <revision>1.0.1</revision>
         <changelist>-SNAPSHOT</changelist>
-        <jenkins.version>2.7.3</jenkins.version>
+        <jenkins.version>2.60.3</jenkins.version>
         <java.level>8</java.level>
     </properties>
     <name>Bitbucket Approval Filter</name>
@@ -177,7 +177,7 @@
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
-                <version>3.5</version>
+                <version>3.7</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
