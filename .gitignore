@@ -6,7 +6,7 @@ work/
 pom.xml.releaseBackup
 release.properties
 
-# INTELLIJ
+ # INTELLIJ
 .idea/
 *.iml
 *.iws
