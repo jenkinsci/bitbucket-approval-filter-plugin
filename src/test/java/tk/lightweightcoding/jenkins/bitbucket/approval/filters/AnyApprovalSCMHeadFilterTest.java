@@ -63,6 +63,9 @@ public class AnyApprovalSCMHeadFilterTest {
     @Test
     public void testNotFilteredWhenReviewerIsApproved() throws Exception {
         BitbucketReviewer reviewer = mock(BitbucketReviewer.class);
+        BitbucketReviewer.User mockUser = mock(BitbucketReviewer.User.class);
+        doReturn(mockUser).when(reviewer).getUser();
+        doReturn("Author").when(mockUser).getIdentifier();
         doReturn(true).when(reviewer).getApproved();
 
         BitbucketSCMSourceRequest mockRequest = getMockRequest(Collections.singletonList(reviewer));
