@@ -10,6 +10,7 @@ import org.kohsuke.accmod.Restricted;
 import org.kohsuke.accmod.restrictions.NoExternalUse;
 import org.kohsuke.stapler.DataBoundConstructor;
 import tk.lightweightcoding.jenkins.bitbucket.approval.filters.AnyApprovalSCMHeadFilter;
+import tk.lightweightcoding.jenkins.bitbucket.approval.filters.AuthorAndNonAuthorApprovalSCMHeadFilter;
 import tk.lightweightcoding.jenkins.bitbucket.approval.filters.NonAuthorApprovalSCMHeadFilter;
 
 public class ApprovedPullRequestTrait extends SCMSourceTrait {
@@ -38,6 +39,8 @@ public class ApprovedPullRequestTrait extends SCMSourceTrait {
             context.withFilter(new AnyApprovalSCMHeadFilter());
         } else if(strategyId == 3) {
             context.withFilter(new NonAuthorApprovalSCMHeadFilter());
+        } else if(strategyId == 4) {
+            context.withFilter(new AuthorAndNonAuthorApprovalSCMHeadFilter());
         }
     }
 
@@ -74,6 +77,7 @@ public class ApprovedPullRequestTrait extends SCMSourceTrait {
             result.add("No approval necessary.", "1");
             result.add("Any approval required.", "2");
             result.add("Non-author approval required.", "3");
+            result.add("Author and Non-author approval required.", "4");
             return result;
         }
     }

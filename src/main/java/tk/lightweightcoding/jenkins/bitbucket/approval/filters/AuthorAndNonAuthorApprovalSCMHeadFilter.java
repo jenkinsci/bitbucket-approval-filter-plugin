@@ -6,9 +6,10 @@ import tk.lightweightcoding.jenkins.bitbucket.approval.utils.BitbucketReviewerUt
 
 import java.util.Collection;
 
-public class NonAuthorApprovalSCMHeadFilter extends BaseApprovalFilter {
+public class AuthorAndNonAuthorApprovalSCMHeadFilter extends BaseApprovalFilter {
+
     @Override
-    protected boolean isPullRequestProperlyApproved(BitbucketPullRequest pullRequest, Collection<BitbucketReviewer> reviewers) {
-        return BitbucketReviewerUtils.hasNonAuthorApproval(reviewers, pullRequest);
+    protected boolean isPullRequestProperlyApproved(BitbucketPullRequest pull, Collection<BitbucketReviewer> reviewers) {
+        return BitbucketReviewerUtils.hasAuthorApproval(reviewers, pull) && BitbucketReviewerUtils.hasNonAuthorApproval(reviewers, pull);
     }
 }

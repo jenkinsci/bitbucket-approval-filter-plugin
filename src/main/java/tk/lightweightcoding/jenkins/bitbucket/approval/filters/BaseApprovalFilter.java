@@ -10,6 +10,7 @@ import jenkins.scm.api.trait.SCMHeadFilter;
 import jenkins.scm.api.trait.SCMSourceRequest;
 
 import java.io.IOException;
+import java.util.Collection;
 
 public abstract class BaseApprovalFilter  extends SCMHeadFilter {
 
@@ -19,13 +20,8 @@ public abstract class BaseApprovalFilter  extends SCMHeadFilter {
             BitbucketSCMSourceRequest request = (BitbucketSCMSourceRequest) scmSourceRequest;
             for (BitbucketPullRequest pull : request.getPullRequests()) {
                 if (pull.getSource().getBranch().getName().equals(((PullRequestSCMHead) scmHead).getBranchName())) {
-                    boolean hasApproval = false;
                     BitbucketPullRequest fullPullRequest = request.getPullRequestById(Integer.parseInt(pull.getId()));
-                    for (BitbucketReviewer reviewer : fullPullRequest.getReviewers()) {
-                        hasApproval = hasApproval || (reviewer.getApproved() && additionalFiltering(reviewer, pull));
-                    }
-
-                    return !hasApproval;
+                    return !isPullRequestProperlyApproved(pull, fullPullRequest.getReviewers());
                 }
             }
         }
@@ -33,5 +29,5 @@ public abstract class BaseApprovalFilter  extends SCMHeadFilter {
         return false;
     }
 
-    protected abstract boolean additionalFiltering(BitbucketReviewer reviewer, BitbucketPullRequest pullRequest);
+    protected abstract boolean isPullRequestProperlyApproved(BitbucketPullRequest pullRequest, Collection<BitbucketReviewer> reviewers);
 }
