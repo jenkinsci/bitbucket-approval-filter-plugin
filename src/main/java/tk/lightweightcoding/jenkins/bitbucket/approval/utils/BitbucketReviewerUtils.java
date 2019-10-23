@@ -11,22 +11,14 @@ public class BitbucketReviewerUtils {
     }
 
     public static boolean hasAuthorApproval(Collection<BitbucketReviewer> reviewers, BitbucketPullRequest pullRequest) {
-        boolean hasAuthorApproval = false;
-
-        for (BitbucketReviewer reviewer : reviewers) {
-            hasAuthorApproval = hasAuthorApproval || (reviewer.getApproved() && BitbucketReviewerUtils.isApprovalAuthor(reviewer, pullRequest));
-        }
-
-        return hasAuthorApproval;
+        return reviewers.stream()
+                .filter(BitbucketReviewer::getApproved)
+                .anyMatch(bitbucketReviewer -> BitbucketReviewerUtils.isApprovalAuthor(bitbucketReviewer, pullRequest));
     }
 
     public static boolean hasNonAuthorApproval(Collection<BitbucketReviewer> reviewers, BitbucketPullRequest pullRequest) {
-        boolean hasNonAuthorApproval = false;
-
-        for (BitbucketReviewer reviewer : reviewers) {
-            hasNonAuthorApproval = hasNonAuthorApproval || (reviewer.getApproved() && !BitbucketReviewerUtils.isApprovalAuthor(reviewer, pullRequest));
-        }
-
-        return hasNonAuthorApproval;
+        return reviewers.stream()
+                .filter(BitbucketReviewer::getApproved)
+                .anyMatch(bitbucketReviewer -> !BitbucketReviewerUtils.isApprovalAuthor(bitbucketReviewer, pullRequest));
     }
 }
