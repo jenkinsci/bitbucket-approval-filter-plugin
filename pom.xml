@@ -18,7 +18,7 @@
     </properties>
     <name>Bitbucket Approval Filter</name>
     <description>Filters that requires pull request to be approved before building.</description>
-    <url>https://wiki.jenkins.io/display/JENKINS/Bitbucket+Approval+Filter+Plugin</url>
+    <url>https://github.com/jenkinsci/bitbucket-approval-filter-plugin</url>
     <licenses>
         <license>
             <name>MIT License</name>
